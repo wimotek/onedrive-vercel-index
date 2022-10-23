@@ -9,15 +9,19 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: ./
+      - name: Checkout
+        uses: actions/checkout@main
+        
+      - name: auto-pull
         id: merge
+        working-directory: ./
         with:
           intervalSeconds: 1
           timeoutSeconds: 60
           labels: need,need2
           labelsStrategy: atLeastOne
           ignoreLabels: ignore
+          
       - name: Create Comment
         uses: KeisukeYamashita/create-comment@main
         with:
