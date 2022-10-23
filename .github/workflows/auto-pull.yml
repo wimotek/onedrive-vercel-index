@@ -1,6 +1,10 @@
 name: Auto merge
-on: pull_request
-
+on: 
+  #pull_request
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+      - cron: 0 20 */4 * *
 jobs:
   merge:
     runs-on: ubuntu-latest
