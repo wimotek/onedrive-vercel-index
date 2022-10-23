@@ -14,7 +14,7 @@ jobs:
         
       - name: auto-pull
         id: merge
-        working-directory: ./
+        uses: KeisukeYamashita/auto-pull-request-merge@main
         with:
           intervalSeconds: 1
           timeoutSeconds: 60
